@@ -11,14 +11,13 @@ galleryContainer.innerHTML = imageMarkup;
 function createImagesGalleryMarkup(gallery) {
  return gallery
     .map(({ preview, original, description }) => {
-      return ` <div class="gallery__item">
-       <a class="gallery__link" href="${original}">
+      return ` <li class="gallery__item">
+       <a class="gallery__item" href="${original}">
           <img class="gallery__image" 
           src="${preview}" 
-          data-source="${original}" 
           alt="${description}" />
         </a>
-    </div> `;
+    </li> `;
     }).join('');
 	
 }
@@ -26,7 +25,3 @@ function createImagesGalleryMarkup(gallery) {
 new SimpleLightbox('.gallery a', {
 	captionDelay: 250
 })
-
-
-
-
