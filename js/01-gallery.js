@@ -28,11 +28,12 @@ function createImagesGalleryMarkup(gallery) {
 	
 };
 
-console.log(createImagesGalleryMarkup(galleryItems));
+
+// console.log(createImagesGalleryMarkup(galleryItems));
 
 function onGalleryContainerClick(evt) {
 	evt.preventDefault();
-	if (!evt.target.classList.contains('.gallery__link')) {
+	if (!evt.target.classList.contains(".gallery__image")) {
 
 		return
 	}
@@ -41,9 +42,14 @@ function onGalleryContainerClick(evt) {
 <img src=“${evt.target.dataset.source}” width=“800" height=“600”>
 `)
 
-	instance.show()
+  instance.show()
+  
+     onGalleryContainerClick('keydown', evt => {
+		if (evt.key === 'Escape') {
+			instance.close()
+		}
+	})
 }
-
 
 
 
